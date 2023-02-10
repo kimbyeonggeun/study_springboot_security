@@ -19,11 +19,11 @@
         <h2 class="form-signin-heading">We Made Please sign in</h2>
         <p>
           <label for="username" class="sr-only">Username</label>
-          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="" />
+          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required="" autofocus="" value="test_01" />
         </p>
         <p>
           <label for="password" class="sr-only">Password</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" />
+          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required="" value="1234" />
         </p>
         <input name="_csrf" type="hidden" value="c82bd309-d932-4edb-8f27-8eb9466eed1f" />
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
