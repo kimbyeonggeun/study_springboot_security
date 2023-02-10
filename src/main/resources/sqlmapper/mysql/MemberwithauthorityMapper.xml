@@ -15,6 +15,5 @@
 		value
 		(#{USERS_UID},#{username},#{password},#{NAME},'',#{phone},#{role}
 		,'UUID-1111-1111111',now(),'UUID-1111-1111111',now());
-
 	</insert>
 </mapper>

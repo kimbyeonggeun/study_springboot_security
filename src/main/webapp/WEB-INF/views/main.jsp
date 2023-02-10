@@ -19,6 +19,9 @@
       <div>
         <a href="/loginForm">Login</a>
       </div>
+      <div>
+        <a href="/joinForm">Join Form</a>
+      </div>
     </sec:authorize>
     <%--로그인이 된 상태 --%>
     <sec:authorize access="isAuthenticated()">

@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class SecurityConfiguration {
@@ -21,8 +22,13 @@ public class SecurityConfiguration {
         // 로그인에 대한 부분
         httpSecurity.formLogin().loginPage("/loginForm")
                 .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/");
+                .defaultSuccessUrl("/"); // ROLE_ADMIN -> /admin
 
         return httpSecurity.build();
+    }
+
+    @Bean
+    public BCryptPasswordEncoder encoderPasswordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }
