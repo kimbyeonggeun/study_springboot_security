@@ -16,11 +16,14 @@ public class SecurityConfiguration {
         httpSecurity.authorizeRequests()
                 // .antMatchers("/").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
                 // .antMatchers("/").authenticated() // authenticated() - 로그인 여부만 판단
-                .antMatchers("/admin").authenticated() // .access("hasRole('ROLE_ADMIN')") // access - 권한 체크
+                .antMatchers("/user").authenticated() // .access("hasRole('ROLE_ADMIN')") // access - 권한 체크
+                .antMatchers("/manager/*").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')") // access - 권한 체크
+                .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')") // access - 권한 체크
                 .anyRequest().permitAll(); // 설정한 URL외에는 모두 접근 가능
 
         // 로그인에 대한 부분
         httpSecurity.formLogin().loginPage("/loginForm")
+                .failureUrl("/loginForm?fail=true") // 로그인 실패시 가는 링크
                 .loginProcessingUrl("/login")
                 .defaultSuccessUrl("/"); // ROLE_ADMIN -> /admin
 
